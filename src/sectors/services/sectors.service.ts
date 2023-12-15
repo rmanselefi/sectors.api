@@ -20,16 +20,20 @@ export class SectorsService {
   async createUserSector(
     createSectorDto: CreateSectorDto,
   ): Promise<UserSector> {
-    const { name, sectors } = createSectorDto;
+    try {
+      const { name, sectors } = createSectorDto;
 
-    const mappedSector: UserSector = {
-      name,
-      sectors,
-    };
+      const mappedSector: UserSector = {
+        name,
+        sectors,
+      };
 
-    const user = await this.userSectorRepository.save(mappedSector);
+      const user = await this.userSectorRepository.save(mappedSector);
 
-    return user;
+      return user;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   // Get all User Sectors
@@ -39,5 +43,24 @@ export class SectorsService {
     });
 
     return sectors;
+  }
+
+  // Edit User Sector
+  async editUserSector(createSectorDto: CreateSectorDto): Promise<UserSector> {
+    try {
+      const { id, name, sectors } = createSectorDto;
+
+      const sector = await this.userSectorRepository.findOne({
+        where: { id },
+      });
+      sector.name = name;
+      sector.sectors = sectors;
+
+      const user = await this.userSectorRepository.save(sector);
+
+      return user;
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
