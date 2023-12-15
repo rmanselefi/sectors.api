@@ -14,7 +14,9 @@ import { SectorsModule } from './sectors/sectors.module';
         url: configService.get('DATABASE_URL'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true,
-        ssl: true,
+        ssl: {
+          rejectUnauthorized: false,
+        },
       }),
     }),
     SectorsModule,

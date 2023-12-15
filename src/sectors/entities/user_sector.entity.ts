@@ -1,7 +1,7 @@
 import { Entity, Column } from 'typeorm';
 import { BaseEntity } from './base.entity';
 
-@Entity({ name: 'user_sector', schema: 'verceldb' })
+@Entity({ name: 'user_sector' })
 export class UserSector extends BaseEntity {
   @Column()
   name: string;
