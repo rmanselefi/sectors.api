@@ -5,8 +5,13 @@ import { ConfigService } from '@nestjs/config';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: ['http://localhost:3001', 'https://sectors-web.vercel.app'],
-    methods: 'GET,PUT,POST,OPTIONS,PATCH,DELETE',
+    origin: function (origin, callback) {
+      console.log('allowed cors for:', origin);
+      callback(null, true);
+    },
+    allowedHeaders:
+      'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe,Authorization',
+    methods: 'GET,PUT,POST,DELETE,UPDATE,OPTIONS',
     credentials: true,
   });
   app.setGlobalPrefix('api');
