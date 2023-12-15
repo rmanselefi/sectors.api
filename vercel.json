@@ -1,24 +1,22 @@
 {
-    "version": 2,
-    "env": {
-        "DATABASE_URL": "postgres://default:rbv6EeB9sCaK@ep-black-glitter-16187285-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb"
-    },
-    "builds": [
-        {
-            "src": "src/main.ts",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "src/main.ts",
-            "methods": [
-                "GET",
-                "POST",
-                "PUT",
-                "DELETE"
-            ]
-        }
-    ]
+  "version": 2,
+  "env": {
+    "DATABASE_URL": "postgres://default:rbv6EeB9sCaK@ep-black-glitter-16187285-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+  },
+  "builds": [
+    {
+      "src": "src/main.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/main.ts",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  ]
 }
