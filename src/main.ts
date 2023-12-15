@@ -4,7 +4,11 @@ import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors();
+  app.enableCors({
+    origin: true,
+    methods: 'GET,PUT,POST',
+    credentials: true,
+  });
   app.setGlobalPrefix('api');
   app.enableVersioning();
   const configService = app.get(ConfigService);
