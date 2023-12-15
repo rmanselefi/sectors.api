@@ -11,7 +11,7 @@ async function bootstrap() {
     },
     allowedHeaders:
       'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe,Authorization',
-    methods: 'GET,PUT,POST,DELETE,UPDATE,OPTIONS',
+    methods: 'GET,PUT,POST,DELETE,OPTIONS',
     credentials: true,
   });
   app.setGlobalPrefix('api');
