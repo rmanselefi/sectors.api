@@ -2,7 +2,7 @@ import { Entity, Column, OneToMany } from 'typeorm';
 import { Subcategory } from './sub_category.entity';
 import { BaseEntity } from './base.entity';
 
-@Entity()
+@Entity({ name: 'category', schema: 'verceldb' })
 export class Category extends BaseEntity {
   @Column()
   name: string;

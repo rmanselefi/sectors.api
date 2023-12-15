@@ -3,7 +3,7 @@ import { Category } from './category.entity';
 import { SubSubcategory } from './sub_sub_category.entity';
 import { BaseEntity } from './base.entity';
 
-@Entity()
+@Entity({ name: 'subcategory', schema: 'verceldb' })
 export class Subcategory extends BaseEntity {
   @Column()
   name: string;
