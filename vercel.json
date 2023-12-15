@@ -1,7 +1,7 @@
 {
     "version": 2,
     "env": {
-        "DATABASE_URL": "postgres://lrmhglfpywxojb:65ced0fdd67d39dcb0464d0568c85dbaa7ce3ff31f131fe511aaac8855172aed@ec2-107-21-67-46.compute-1.amazonaws.com:5432/d16hiri9l8s5d1"
+        "DATABASE_URL": "postgres://default:rbv6EeB9sCaK@ep-black-glitter-16187285-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb"
     },
     "builds": [
         {
